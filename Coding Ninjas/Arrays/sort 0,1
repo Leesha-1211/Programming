@@ -1,0 +1,20 @@
+void sortZeroesAndOne(int *input, int size)
+{
+    int i,j,zero,one;
+    for(i=0;i<size;i++){
+        
+        if(input[i]==0){
+            zero++;
+        }
+        else{
+            one++;
+        }
+    }
+    
+    for(i=0;i<zero;i++){
+        cout<<0<<" ";
+    }
+    for(j=0;j<one;j++){
+        cout<<1<<" ";
+    }
+}
