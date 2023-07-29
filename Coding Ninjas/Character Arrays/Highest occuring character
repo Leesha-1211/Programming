@@ -1,0 +1,29 @@
+#include<string>
+char highestOccurringChar(char input[]) {
+   int arr[100];
+   int  len = strlen(input);
+      for(int i=0;i<len;i++){
+          int count=0;
+    for(int j=i+1;i<len;i++){
+      if (input[i] == input[j]) {
+          count++;
+
+          for (int k = i; k < len; k++) {
+            arr[i] == count;
+          }
+      }
+    }
+      }
+
+   int max=arr[0];
+for(int i=1;i<len;i++){
+  if (arr[i] > max) {
+    temp = max;
+    max = arr[i];
+    arr[i] = temp;
+  }
+}
+
+}   
+    }
+}
