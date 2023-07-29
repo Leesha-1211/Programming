@@ -1,0 +1,23 @@
+
+Node *reverseLinkedList(Node *head) {
+  if (head == NULL)
+    return head;
+  Node *current = head;
+  Node *tail = head;
+  while (tail->next != NULL)
+    tail = tail->next;
+  while (current != tail) {
+    int temp = current->data;
+    current->data = tail->data;
+    tail->data = temp;
+    if (current->next != tail) {
+      Node *prev = current;
+      while (prev->next != tail)
+        prev = prev->next;
+      tail = prev;
+      current = current->next;
+    } else
+      current = current->next;
+  }
+  return head; // Write your code here
+}
