@@ -1,0 +1,42 @@
+
+BinaryTreeNode<int>* helper(int *postorder, int *inorder, int posts , int poste, int ins, int ine ){
+
+  if(posts>poste){
+		return NULL;
+	}
+         int rootdata=postorder[poste];
+		  int rootindex=-1;
+             for(int i=ins;i<=ine;i++){
+             if(inorder[i]==rootdata){
+				 rootindex=i;
+				 break;
+			 }
+ }
+
+ int lposts=posts;
+ int lins=ins;
+  int line=rootindex-1;
+int lposte=line-lins+lposts;
+
+/*
+int rps = lpe + 1;         // right prestart
+  int rpe = pe - 1;          //  right preend
+  int ris = k + 1;           // right instart
+  int rie = ie;  */
+ int rposts=lposte+1;
+ int rposte=poste-1;
+ int rins=rootindex+1;
+ int rine=ine;
+		 
+BinaryTreeNode<int>*root=new BinaryTreeNode<int>(rootdata);
+root->left=helper(postorder,  inorder ,  lposts , lposte, lins,  line );
+root->right=helper( postorder,  inorder ,  rposts , rposte, rins,  rine );
+
+return root;
+}
+
+BinaryTreeNode<int>* buildTree(int *postorder, int postLength, int *inorder, int inLength) {
+ return helper(postorder,inorder,0,postLength-1,0,inLength-1);
+
+
+}
