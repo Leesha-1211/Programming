@@ -1,0 +1,23 @@
+
+int subset(int input[], int n, int output[][20]) {
+    if(n==0){
+        output[0][0]=0;
+        return 1;
+    }
+    
+    int temp=subset(input,n-1,output);
+    
+    for(int i=temp;i<2*temp;i++){
+        output[i][0]=output[i-temp][0]+1;
+    }
+    
+    for(int i=temp;i<2*temp;i++){
+        int j;
+        for(j=1;j<=output[i-temp][0];j++){
+            output[i][j]=output[i-temp][j];
+        }
+        output[i][j]=input[n-1];
+    }
+
+    return 2*temp;
+}
