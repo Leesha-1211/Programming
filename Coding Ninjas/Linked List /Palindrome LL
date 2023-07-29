@@ -1,0 +1,25 @@
+#include<vector>
+bool isPalindrome(Node *head)
+{
+
+	Node * temp=head;
+	vector<int>vec;
+	vector<int>vecs;
+	vec.push_back(temp->data);
+   while(temp->next!=NULL){
+	     temp=temp->next;
+   }
+   vec.push_back(temp->data);
+   
+   
+
+return (vec==vecs)?1:0;
+
+}
+void printReverse(Node *head) {
+vector<int>vecs;
+  if (head == NULL)
+    return;
+  printReverse(head->next);
+  vecs.push_back(head->data);
+}  
