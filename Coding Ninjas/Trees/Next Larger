@@ -1,0 +1,22 @@
+//Given a generic tree and an integer n. Find and return the node with next larger element in the tree i.e. find a node with value just greater than n.
+Note: Return NULL if no node is present with the value greater than n.//
+
+#include <climits>
+void getNextLarger(TreeNode<int> *root, TreeNode<int> **nextLarger, int *num,
+                   int x) {
+  if (root->data > x && root->data <= *num) {
+    *num = root->data;
+    *nextLarger = root;
+  }
+  for (int i = 0; i < root->children.size(); i++)
+    getNextLarger(root->children[i], nextLarger, num, x);
+}
+TreeNode<int> *getNextLargerElement(TreeNode<int> *root, int x) {
+  // Write your code here
+  if (root == NULL)
+    return NULL;
+  TreeNode<int> *nextLarger;
+  int num = INT_MAX;
+  getNextLarger(root, &nextLarger, &num, x);
+  return nextLarger;
+}
