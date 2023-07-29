@@ -1,0 +1,12 @@
+void replaceWithDepth(TreeNode<int> *root, int count) {
+  root->data = count;
+  for (int i = 0; i < root->children.size(); i++)
+    replaceWithDepth(root->children[i], count + 1);
+}
+void replaceWithDepthValue(TreeNode<int> *root) {
+  // Write your code here
+  if (root == NULL)
+    return;
+  int count = 0;
+  replaceWithDepth(root, count);
+}
