@@ -1,0 +1,17 @@
+int pairSum(int *input, int n, int x)
+{
+	if(n==0||n==1){
+        return 0;
+    }
+    
+    int temp=pairSum(input,n-1,x);
+    int count=0;
+    
+    for(int i=0;i<n-1;i++){
+        if(input[i]+input[n-1]==x){
+            count++;
+        }
+    }
+    
+    return temp+count;
+}
