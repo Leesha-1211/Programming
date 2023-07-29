@@ -1,0 +1,11 @@
+void removeAllOccurrencesOfChar(char input[], char c) {
+    int k=0,i=0;
+    while(input[i]!=0){
+        if(input[i]!=c){
+            input[k]=input[i];
+            k++;
+        }
+        i++;
+    }
+    input[k]=0;
+}
