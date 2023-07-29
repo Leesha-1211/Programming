@@ -1,0 +1,12 @@
+class Solution {
+public:
+	int minimumSum(int num) {
+		vector<int>lee;
+        while(num!=0){
+            lee.push_back(num%10);
+            num=num/10;
+        }
+        sort(lee.begin(),lee.end());
+        return 10*(lee[0]+lee[1])+lee[2]+lee[3];
+	}
+};
