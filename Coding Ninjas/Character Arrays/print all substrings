@@ -1,0 +1,22 @@
+void printSubstrings(char input[]) {
+    int n=strlen(input);
+    
+    
+    for(int i=0;i<n;i++){
+
+    int j=i;
+    
+    while(j<n){
+        int k=i;
+        while(k<=j){
+            cout<<input[k];
+            k++;
+        }
+        j++;
+        cout<<endl;
+    }
+}
+    
+    
+
+}
