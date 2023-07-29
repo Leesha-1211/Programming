@@ -1,0 +1,36 @@
+void findLargest(int **arr, int m, int n)
+{
+    int max=-2147483648,row=1,col=1,ans=0;
+    
+    for(int i=0;i<m;i++){
+        int sum=0;
+        for(int j=0;j<n;j++){
+            sum+=arr[i][j];
+        }
+        if(sum>max){
+            max=sum;
+            row=1;col=0;
+            ans=i;
+        }
+    }
+
+    
+    for(int j=0;j<n;j++){
+        int sum=0;
+        for(int i=0;i<m;i++){
+            sum+=arr[i][j];
+        }
+        if(sum>max){
+            max=sum;
+            row=0;col=1;
+            ans=j;
+        }
+    }  
+    
+    if(row==1){
+        cout<<"row "<<ans<<" "<<max;
+    }else if(col==1){
+        cout<<"column "<<ans<<" "<<max;
+    }
+    
+}
