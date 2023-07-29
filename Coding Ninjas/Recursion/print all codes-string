@@ -1,0 +1,36 @@
+#include <string.h>
+using namespace std;
+
+
+void print(string ip,string op){
+    if(op=="-1"){
+        return;
+    }
+    
+    if(ip.size()==0){
+        cout<<op<<endl;
+        return;
+    }
+    
+    string op1=(op+char(ip[0]-'1'+'a'));
+    string op2;
+        int temp=(op[op.size()-1]-'a'+1)*10+(ip[0]-'0');
+        if(temp<=26&&(ip[0]-'0')<=9){
+           op2=op.erase(op.size()-1,1)+char(temp+'a'-1);
+        }else{
+            op2="-1";
+        }
+    ip.erase(0,1);
+    
+    print(ip,op1);
+    print(ip,op2);
+
+}
+
+void printAllPossibleCodes(string input) {
+    
+    string ip=input.substr(1);
+    string op="";
+    op+=char(input[0]-'1'+'a');
+    print(ip,op);
+}
