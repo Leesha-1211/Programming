@@ -1,0 +1,35 @@
+
+int length(char arr[]){
+    int i=0;
+    
+    while(arr[i]!=0){
+        i++;
+    }
+    return i;
+}
+
+void reverse(char arr[],int s,int e){
+    while(s<e){
+        int temp=arr[s];
+        arr[s]=arr[e];
+        arr[e]=temp;
+        s++;
+        e--;
+    }
+}
+
+
+void reverseEachWord(char input[]) {
+    
+    int n=length(input),s=0,e=0;
+    
+    for(int i=0;i<=n;i++){
+        if(input[i]==' '||input[i]==0){
+            e=i-1;
+            reverse(input,s,e);
+            s=i+1;
+        }
+    }
+}
+    
+    
