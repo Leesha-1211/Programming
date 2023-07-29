@@ -1,0 +1,44 @@
+
+#include<bits/stdc++.h>
+
+void print(vector<int> input1,vector<int> op){
+    if(input1.size()==0){
+        for(int i=0;i<op.size();i++){
+            cout<<op[i]<<" ";
+        }
+        cout<<endl;
+        return;
+    }
+    
+    vector<int> op1=op;
+    vector<int> op2=op;
+    
+    op2.push_back(input1[0]);
+    
+    // for(int i=1;i<input.size()-1;i++){
+    //     input[i]=input[i+1];
+    // }
+    // input.pop_back();
+    
+    input1.erase(input1.begin()+0);
+    
+    print(input1,op1);
+    print(input1,op2);   
+    
+    
+}
+
+
+void printSubsetsOfArray(int input[], int size) {
+	
+    vector<int> v;
+    vector<int> op;
+    
+    for(int i=0;i<size;i++){
+        v.push_back(input[i]);
+    }
+    
+    print(v,op);
+    
+    
+}
