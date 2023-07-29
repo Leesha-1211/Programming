@@ -1,0 +1,12 @@
+double geometricSum(int k) {
+    if(k==0){
+        return 1;
+    }
+    
+    double temp=geometricSum(k-1);
+    
+    return temp+1.0/pow(2,k);
+
+}
+
+
