@@ -1,0 +1,36 @@
+
+
+void sumOfTwoArrays(int arr1[],int n,int arr2[],int m,int *output){
+    int k=max(n,m);
+    
+    int i=n-1,j=m-1,carry=0,sum,rem;
+    
+    while(i>=0&&j>=0){
+        sum=arr1[i]+arr2[j]+carry;
+        rem=sum%10;
+        carry=sum/10;
+        output[k]=rem;
+        k--;i--;j--;
+    }
+    
+    while(i>=0){
+        sum=arr1[i]+carry;
+        rem=sum%10;
+        carry=sum/10;
+        output[k]=rem;
+        k--;
+        i--;
+    }
+    
+    while(j>=0){
+        sum=arr2[j]+carry;
+        rem=sum%10;
+        carry=sum/10;
+        output[k]=rem;
+        k--;
+        j--;
+    }    
+    
+    output[k]=carry;
+    
+}
