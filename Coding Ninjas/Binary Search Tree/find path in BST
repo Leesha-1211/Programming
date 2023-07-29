@@ -1,0 +1,20 @@
+vector<int> *getPath(BinaryTreeNode<int> *root, int data) {
+  // Write your code here
+  if (root == NULL)
+    return NULL;
+  if (root->data == data) {
+    vector<int> *v = new vector<int>();
+    v->push_back(root->data);
+    return v;
+  } else if (root->data > data) {
+    vector<int> *left = getPath(root->left, data);
+    if (left != NULL)
+      left->push_back(root->data);
+    return left;
+  } else if (root->data < data) {
+    vector<int> *right = getPath(root->right, data);
+    if (right != NULL)
+      right->push_back(root->data);
+    return right;
+  }
+}
