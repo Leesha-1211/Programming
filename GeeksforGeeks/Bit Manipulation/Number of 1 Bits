@@ -1,0 +1,18 @@
+
+class Solution {
+  public:
+    int setBits(int N) {
+  
+        int count = 0;
+        while (N) {
+           // Increment count if the least significant bit is set (1)
+          if(N&1==1){
+           count ++;
+          }
+           // Right shift n to check the next bit
+           N >>= 1;
+       }
+    return count;
+  
+    }
+};
