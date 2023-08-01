@@ -1,0 +1,25 @@
+//Sam among his friends wants to go to watch a movie in Armstord Cinema. There is something special about Armstord cinema whenever people come in the group here.
+They will get seats accordingly their heights. Sam as a curious guy always wants to sit in the middle as cinema has the best view from the middle. 
+Now, Sam as the leader of his group decides who will join him for the movie. Initially, he has N−1 friends with him (N including him). You are given 
+N−1 numbers that represent the heights of Sam's friends. You are given the height of Sam as well.
+Now, Sam can do two operations:
+He can call a new friend of height H .
+He can cancel any of his friend invitations.
+Each operation will cost him a unit time. He wants to do this as soon as possible.//
+
+class Solution {
+public:
+	int samHeight(vector<int>& nums, int S) {
+		int lessHeightCount = 0;
+        int moreHeightCount = 0;
+        for(int height : nums){
+            if(height < S){
+                lessHeightCount++;
+            }
+            else{
+                moreHeightCount++;
+            }
+        }
+		return abs(moreHeightCount-lessHeightCount);
+	}
+};
