@@ -1,0 +1,57 @@
+#include<iostream>
+#include<vector>
+#include<stack>
+#include<algorithm>
+using namespace std;
+
+void lexicographicallysmallestsubsuquence(string s,int k){
+int n=s.size();
+stack<char>lee;
+
+
+for(int i=0;i<n;i++){
+
+       if(lee.empty()){
+           lee.push(s[i]);
+       }
+       else{
+            while(!lee.empty()&&s[i]<lee.top()&&lee.size()+n-1-i>=k){
+                lee.pop();
+            }
+            if(!lee.empty()||lee.size()<k){
+                lee.push(s[i]);
+            }
+
+
+
+       }
+
+
+}
+
+string result;
+ 
+    
+    while (!lee.empty())
+    {
+        result.push_back(lee.top());
+        lee.pop();
+    }
+ 
+   
+    reverse(result.begin(), result.end());
+    cout << result;
+}
+int main()
+{
+    string s;
+   
+    cin >> s;
+    int k;
+    
+    cin >> k;
+ 
+   lexicographicallysmallestsubsuquence(s, k);
+ 
+    return 0;
+}
