@@ -1,0 +1,41 @@
+class Solution {
+public:
+	string decodeString(string s) {
+        stack<char>jah;
+		   for(int i=0;i<s.length();i++){
+              
+               if(s[i]==']'){
+                    string decodedstring="";
+                   while(jah.top()!='['){
+                     decodedstring+=jah.top();
+                     jah.pop();
+                   }
+                   jah.pop();
+                int k=0;
+                int base=1;
+                while(!jah.empty()&&isdigit(jah.top())){
+                    k=k+(jah.top()-'0')*base;
+                    jah.pop();
+                    base=base*10;
+                } 
+               
+              while(k!=0){
+
+         for(int i=decodedstring.size()-1;i>=0;i--){
+            jah.push(decodedstring[i]);
+         }
+         k--;
+              }
+               }
+               else{
+                   jah.push(s[i]);
+               }
+ }
+ string result;
+        for (int i=jah.size()-1;i>=0;i--) {
+            result = jah.top() + result;
+            jah.pop();
+        }
+        return result;
+    }
+};
