@@ -1,0 +1,32 @@
+class Solution
+{
+    public:
+    int countFractions(int n, int numerator[], int denominator[])
+    {
+        int ans=0;
+        map<pair<int,int>,int>lee;
+        
+        for(int i=0;i<n;i++){
+            
+            int d=__gcd(numerator[i],denominator[i]);
+            
+            numerator[i]=numerator[i]/d;
+            denominator[i]=denominator[i]/d;
+       
+    
+        int a,b;
+        a=numerator[i];
+        b=denominator[i];
+         int c=b-a;
+                
+            if(lee[{c,b}]){
+                ans=ans+lee[{c,b}];
+            }
+    
+                ++lee[{numerator[i],denominator[i]}];
+        
+            
+        }
+        return ans;
+      }
+};
