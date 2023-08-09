@@ -1,0 +1,22 @@
+class Solution{
+public: 
+    long long int largestPrimeFactor(int N){
+      int i=2;
+      int ans;
+      while(i<N){
+          
+          if(N%i==0){
+              N=N/i;
+              
+          }else{
+              i++;
+          }
+       ans=N;
+          
+      }
+      
+      
+    return ans;  
+      
+    }
+};
