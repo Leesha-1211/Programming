@@ -1,0 +1,9 @@
+class Solution{
+  public:
+    long long int floorSqrt(long long int x) 
+    {
+       long long int sqr = sqrt(x);
+    long long int result = (int)(sqr);
+    return result;
+    }
+};
