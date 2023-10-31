@@ -1,0 +1,19 @@
+
+node *findKthFromLast(node *head, int k)
+{
+   node*temp=head;
+   node * cemp=head;
+	int count=1;
+	int tount=0;
+	while(temp->next!=NULL){
+		temp=temp->next;
+		count++;
+	}
+
+        while (tount < count - k) {
+                cemp = cemp->next;
+                tount++;
+        }
+        return cemp;
+}
+
