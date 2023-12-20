@@ -1,0 +1,22 @@
+int totalSum = 0;
+    int leftSum = 0;
+
+    // Calculate the total sum of the array
+    for (int num : nums) {
+        totalSum += num;
+    }
+
+    // Iterate through the array to find the pivot index
+    for (int i = 0; i < nums.size(); ++i) {
+        // Check if the sum of elements to the left of the current index is equal to
+        // the sum of elements to the right of the current index
+        if (leftSum == totalSum - leftSum - nums[i]) {
+            return i;
+        }
+
+        // Update the sum of elements to the left
+        leftSum += nums[i];
+    }
+
+    // If no pivot index is found, return -1
+    return -1;
