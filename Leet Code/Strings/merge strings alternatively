@@ -1,0 +1,40 @@
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+      
+        
+        string lee="";
+      
+          if(word1.length()>word2.length()){
+            // int count = word1.length()-word2.length();
+             for(int i=0;i<word2.length();i++){
+                 lee=lee+word1[i];
+                 lee=lee+word2[i];
+             }
+             for(int i=word2.length();i<word1.length();i++){
+                    lee=lee+word1[i];
+             }
+          }
+
+       if(word2.length()>word1.length()){
+             int count = word2.length()-word1.length();
+             for(int i=0;i<word1.length();i++){
+                 lee=lee+word1[i];
+                 lee=lee+word2[i];
+             }
+             for(int i=word1.length();i<word2.length();i++){
+                    lee=lee+word2[i];
+             }
+          }
+
+          if(word2.length()==word1.length()){
+            
+             for(int i=0;i<word1.length();i++){
+                 lee=lee+word1[i];
+                 lee=lee+word2[i];
+             }
+          }
+
+              return lee;
+    }
+};
